@@ -5,12 +5,12 @@
 
 ## 目标
 解决分布式中业务与消息一致性的问题   
-1.发送一致性(进度80%)  
-2.消费一致性(进度1%)
+1.发送一致性(进度80%)   
+2.消费一致性(进度1%)   
 
 ## 组件版本
-java 1.8  
-springboot 1.5.7 
+java:1.8  
+springboot:1.5.7 
 
 ## 使用方法-springboot
 
@@ -43,7 +43,7 @@ public class MqConfig {
 }
 ```
 
-### Step3 实现回调 ProducerStoreDBCallback接口：
+### Step3: 实现回调 ProducerStoreDBCallback接口：
 ```
 @Service
 @Transactional
@@ -77,7 +77,7 @@ public class DemoMsgCallBack implements ProducerStoreDBCallback {
 ```
 
 
-### Step4 开始使用：
+### Step4: 开始使用
 
 ```
 
