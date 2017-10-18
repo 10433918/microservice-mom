@@ -2,6 +2,7 @@ package com.yonyou.cloud.mom.core.store.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yonyou.cloud.mom.core.store.ProducerMsgStore;
 import com.yonyou.cloud.mom.core.store.callback.ProducerStoreDBCallback;
@@ -12,6 +13,7 @@ import com.yonyou.cloud.mom.core.util.SpringUtil;
  * 存储生产者消息的实现
  * 通过DB存储
  */
+@Transactional
 public class DbStoreProducerMsg implements ProducerMsgStore {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DbStoreProducerMsg.class);

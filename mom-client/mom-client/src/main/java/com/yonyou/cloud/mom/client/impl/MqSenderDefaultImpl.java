@@ -123,7 +123,6 @@ public class MqSenderDefaultImpl extends RabbitGatewaySupport implements MqSende
 			throws IOException {
 
 		// save data before commit
-		// only when enable
 		beforeCommitExecutor.execute(new Runnable() {
 			@Override
 			public void run() {

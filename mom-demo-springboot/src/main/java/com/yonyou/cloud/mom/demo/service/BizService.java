@@ -27,7 +27,9 @@ public class BizService {
 		bizDao.save(e);
 		
 		mqSender.send("tt", "login", name+"log event");
-		Thread.sleep(10*1000);
+		
+		mqSender.send("tt", "login", name+"log event 2");
+		
 		if(name.equals("liuxudong")){
 			throw new RuntimeException();
 		}
