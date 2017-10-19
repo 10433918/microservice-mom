@@ -19,6 +19,7 @@ public class MqConfig {
 		return mqSenderDefaultImpl;
 	}
 	
+	
 	@Bean
 	public SpringUtil springUtil(){
 		return new SpringUtil();
