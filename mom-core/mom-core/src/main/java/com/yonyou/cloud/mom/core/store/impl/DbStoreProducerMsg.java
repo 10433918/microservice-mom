@@ -2,6 +2,7 @@ package com.yonyou.cloud.mom.core.store.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yonyou.cloud.mom.core.store.ProducerMsgStore;
@@ -57,6 +58,7 @@ public class DbStoreProducerMsg implements ProducerMsgStore {
      * @throws StoreException
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW,rollbackFor =RuntimeException.class)
     public void msgStoreFailed(String msgKey, String infoMsg, Long costTime) throws StoreException {
 
     	ProducerStoreDBCallback producerStoreDBCallback =

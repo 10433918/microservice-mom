@@ -10,11 +10,11 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitGatewaySupport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yonyou.cloud.mom.client.MqSender;
 import com.yonyou.cloud.mom.core.store.ProducerMsgStore;
-import com.yonyou.cloud.mom.core.store.impl.DbStoreProducerMsg;
 import com.yonyou.cloud.mom.core.transaction.executor.AfterCommitExecutorDefaultImpl;
 import com.yonyou.cloud.mom.core.transaction.executor.PreCommitExecutorDefaultImpl;
 import com.yonyou.cloud.mom.core.transaction.executor.TransactionExecutor;
@@ -36,7 +36,8 @@ public class MqSenderDefaultImpl extends RabbitGatewaySupport implements MqSende
 	private TransactionExecutor afterCommitExecutor = new AfterCommitExecutorDefaultImpl();
 
 	// msg Db Store的实现
-	private ProducerMsgStore msgStore = new DbStoreProducerMsg();
+	@Autowired
+	private ProducerMsgStore msgStore ;//= new DbStoreProducerMsg();
 
 	@Override
 	@Transactional
